@@ -5,7 +5,7 @@
 **/
 (function (root, factory) {
 	if (typeof define === 'function') {
-		define(['jquery', 'jquery-cookie', 'jquery-iframe-transport', 'lodash'], factory);
+		define(['jquery', 'jquery-cookie'], factory);
 	} else if (typeof exports === 'object') {
 		module.exports = factory();
 	} else {
