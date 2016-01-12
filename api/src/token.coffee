@@ -14,17 +14,18 @@ define [
             refreshToken: 'refresh_token'
             remember: 'snackk_remember'
             sid: 'snackk_sid'
-
+        options: null
 
         # init token data
-        init: (token) ->
+        init: (token, opts) ->
             if typeof token != 'undefiend'
                 token = {
                     access_token: $.cookie(@TAG.accessToken) || ''
                     refresh_token: $.cookie(@TAG.refreshToken) || ''
                 }
-
+            @options = ops if opts
             @setToken(token)
+
 
         # return access token
         getAccessToken: () ->
@@ -60,6 +61,9 @@ define [
             if remember == 1
                 options.expires = 7
 
+            if @options and @options['onSetToken']
+                @options.onSetToken _token
+                
             $.cookie(@TAG.accessToken, _token.accessToken, options)
             $.cookie(@TAG.refreshToken, _token.refreshToken, options)
             $.cookie(@TAG.remember, remember, options)

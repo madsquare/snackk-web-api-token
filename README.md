@@ -1,57 +1,19 @@
 # snackk-web-api-token
 
 ## require
-* lodash
+* jquery-cookie
 
 ## not amd
 ```
-window.snackkModule.user
+window.snackkModule.token
 ```
 
 ## functions
-user:
-* registUser
-* loadMe
-* updateUser
-* deleteUser
+token:
+* **getAccessToken** : get access-token from cookie
+* **getRefreshToken** : get refresh-token from cookie
+* **setToken** : set access-token and refresh-token to cookie
 
-provider:
-* addProvider
-* deleteProvider
-
-profile:
-* updateProfile
-* deleteProfile
-* loadDefaultProfile
-
-password:
-* updatePassword
-
-validate:
-* validateEmail
-
-verify:
-* sendVerifyEmail
-
-
-
-
-### validate email ERROR CODE
-```
-DUPLICATED: 'error_duplicated'
-INVALID: 'error_invalid'
-UN_KNOWN: 'error_unknown'
-```
-
-## example
-```
-userModule.init server
-userModule.loadMe {
-  'success': (res) =>
-    debugger
-  'error': (er) =>
-    debugger
-}
-```
-
-
+sid:
+* **generateSid**
+* **getSid** : get sid

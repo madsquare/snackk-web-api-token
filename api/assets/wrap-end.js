@@ -1,5 +1,5 @@
-	define('jquery', function () {
-		return $;
+	define('jquery-cookie', function () {
+		return ;
 	});
 	return require('token');
 }));
